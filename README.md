@@ -10,6 +10,6 @@ We are at version 0.1.0
 
 > Nil
 
--
+---
 
 Copyright (C) 2025 **Naman Taggar**
