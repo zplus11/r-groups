@@ -6,9 +6,9 @@ This is a work in progress.
 
 ### Progress
 
-We are at version 0.1.0
+> We are at version 0.1.0
 
-> Nil
+Nil
 
 ---
 
