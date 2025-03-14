@@ -4,15 +4,42 @@
 	--col-hl: teal
 }
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: content-box
+}
+
+body {
+	min-height: 100vh
+}
+
 .wrapper {
-	max-width: 800px;
-	margin: 15px auto
+	padding: 0 15px;
+
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	grid-template-areas:
+	"navbar navbar"
+	"sidebar main"
+	"footer footer"
 }
 
 a {
 	text-decoration: none;
 	color: var(--col-hl);
 	padding-bottom: 4px
+}
+
+p {
+	margin: 15px 0
+}
+
+h4 {
+	color: var(--col-hl);
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	position: sticky
 }
 
 a:hover {
@@ -23,7 +50,10 @@ a:hover {
 nav {
 	display: flex;
 	justify-content: space-between;
-	align-items: center
+	align-items: center;
+	padding: 10px 0;
+
+	grid-area: navbar
 }
 
 nav ul li {
@@ -31,15 +61,146 @@ nav ul li {
 	padding: 5px 15px
 }
 
-.cayley {
-	overflow: auto
+aside {
+	background-color: var(--col-hl);
+	border-radius: 10px;
+	padding: 15px;
+	margin-right: 15px;
+	color: white;
+
+	grid-area: sidebar
 }
 
-table td {
+aside form select {
+	background-color: inherit;
+	border: white 2px solid;
+	border-radius: 5px;
+	color: white;
+	width: 175px
+}
+
+aside form input {
+	background-color: inherit;
+	border: none;
+	border-bottom: white 2px solid;
+	padding-bottom: 2px;
+	color: white;
+	width: 175px
+}
+
+aside form option {
+	color: black
+}
+
+aside form select, input {
+	margin: 10px 0;
+	padding: 2px 5px
+}
+
+main {
+	border: var(--col-hl) 1px solid;
+	border-radius: 10px;
+	padding: 15px;
+	height: calc(90vh - 31px - 51px);
+
+	grid-area: main;
+	display: grid;
+	gap: 30px;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+	"cayley properties lattice"
+	"cayley subgroups lattice"
+}
+
+.properties {
+	overflow: auto;
+	max-width: 33vh;
+	max-height: 30vh;
+
+	grid-area: properties
+}
+
+.cayley {
+	overflow: auto;
+	max-width: 33vw;
+	
+	grid-area: cayley
+}
+
+.cayley table td {
 	padding: 0 6px
 }
 
-.cayleyTable {
+.subgroups {
 	overflow: auto;
-	max-height: 700px
+	max-width: 33vw;
+
+	grid-area: subgroups;
+}
+
+li {
+	list-style-position: inside
+}
+
+.lattice {
+	overflow: auto;
+	max-width: 33vw;
+
+	grid-area: lattice
+}
+
+footer {
+	grid-area: footer
+}
+
+@media (max-width: 800px) {
+	.wrapper {
+		grid-template-columns: 0fr 1fr
+	}
+
+	main {
+		margin-right: 15px
+	}
+
+	aside {
+		position: fixed;
+		top: 50px;
+		bottom: 0px;
+		left: 0px;
+		width: 250px;
+		display: none;
+		border-radius: 0px
+	}
+
+	.show {
+		display: block;
+		z-index: 1
+	}
+}
+
+@media (min-width: 800px) {
+	.btn {
+		display: none
+	}
+}
+
+@media (max-width: 600px) {
+	main {
+		display: block;
+		height: auto;
+		width: 100vw
+	}
+
+	h4 {
+		text-align: center
+	}
+
+	.cayley, .subgroups, .lattice, .properties {
+		max-width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 20px 0
+	}
 }

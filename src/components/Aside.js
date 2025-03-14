@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Selector(props) {
+function Aside(props) {
 	const [formData, setFormData] = useState({
 		selectedOption: "addg",
 		numberValue: 3,
@@ -20,12 +20,13 @@ function Selector(props) {
 	};
 
 	return (
+		<aside className={`${props.isSidebarOpen ? "show" : ""}`}>
+		<p>This work is an extract of <strong>MGroups</strong> translated to Javascript and handled on the front-end using React. It is a work in progress.</p>
+		<p>Below, select the group you wish to explore:</p>
 		<form onSubmit={handleSubmit}>
-		{/* Dropdown */}
 		<label>
-		<span>Select an Option:</span>
 		<select
-		name="selectedOption" // Match state key
+		name="selectedOption"
 		value={formData.selectedOption}
 		onChange={handleChange}
 		>
@@ -37,10 +38,8 @@ function Selector(props) {
 		<option value="quag">Quaternions</option>
 		</select>
 		</label>
-
-		{/* Number Input */}
+		<p>and the corresponding order/<i>n</i> for this group:</p>
 		<label>
-		<span>Selection corresponding variable</span>
 		<input
 		type="number"
 		name="numberValue"
@@ -48,10 +47,11 @@ function Selector(props) {
 		onChange={handleChange}
 		/>
 		</label>
-
+		<br/>
 		<button type="submit">Submit</button>
 		</form>
+		</aside>
 	);
 }
 
-export default Selector;
+export default Aside;

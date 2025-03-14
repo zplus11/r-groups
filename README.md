@@ -1,14 +1,8 @@
 # r-groups
 
-Extract of [groups](https://github.com/zplus11/MGroups.git), in React JS.
+Extract of [MGroups](https://github.com/zplus11/MGroups.git) translated to JavaScript and handled at the front-end using React.
 
 This is a work in progress.
-
-### Progress
-
-> We are at version 0.1.0
-
-Nil
 
 ---
 

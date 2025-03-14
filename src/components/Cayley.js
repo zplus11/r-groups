@@ -1,6 +1,7 @@
 function Cayley(props) {
 	return (
-		<div className="cayleyTable">
+		<div className="cayley">
+		<h4>Cayley Table</h4>
 		<table border="1" rules="all">
 		<tbody>
 		{props.group.cayley().map((row, i) => (
